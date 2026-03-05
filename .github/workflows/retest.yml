@@ -20,7 +20,7 @@ jobs:
           curl -X POST \
             -H 'Content-type: application/json' \
             -H 'auth-token: 68e1b8e8-8c6d-48d4-94c5-0cdf487adb4c' \
-            --data '{"fileUrl":"URL_TO_APP_FILE","forceCancelPreviousTesting":true,"storedValues":{"storedValueName1":"Value"}}' \
+            --data '{"fileUrl":"https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-03-05_19-54-27_test_ios_one_simple.app.zip","forceCancelPreviousTesting":true,"storedValues":{"storedValueName1":"Value"}}' \
             https://api.testrigor.com/api/v1/apps/uTFtZvK2yspL93TXL/retest
 
           sleep 10
