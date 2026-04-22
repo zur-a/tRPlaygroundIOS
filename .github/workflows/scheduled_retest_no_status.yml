@@ -16,9 +16,6 @@ jobs:
       FILE_URL: "https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-03-05_19-54-27_test_ios_one_simple.app.zip"
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Run TestRigor API call
         run: |
           curl -X POST \
