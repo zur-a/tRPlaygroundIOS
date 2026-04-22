@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      FILE_URL: "https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-03-05_19-54-27_test_ios_one_simple.app.zip"
+      FILE_URL: "https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-04-22_12-30-48_tr-playground-mobile-0.4.app.zip"
 
     steps:
       - name: Run TestRigor API call
