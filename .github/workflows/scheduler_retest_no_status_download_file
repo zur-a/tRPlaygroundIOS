@@ -1,0 +1,29 @@
+name: testRigor GitHub Actions Scheduler
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"   # Runs every day at 00:00 BRT (03:00 UTC)
+
+jobs:
+  api_call_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download file from S3
+        run: |
+          curl -L "https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-04-22_12-30-48_tr-playground-mobile-0.4.app.zip" -o app.zip
+
+      - name: Upload file to TestRigor
+        run: |
+          curl -X POST \
+            -H 'auth-token: 68e1b8e8-8c6d-48d4-94c5-0cdf487adb4c' \
+            -F "file=@app.zip" \
+            -F 'data={"testCaseUuids":[],"forceCancelPreviousTesting":false}' \
+            https://api2.testrigor.com/api/v1/apps/uTFtZvK2yspL93TXL/retest
+
+      - name: Wait briefly
+        run: sleep 10
