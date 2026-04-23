@@ -1,4 +1,4 @@
-name: testRigor GitHub Actions Scheduler
+name: testRigor GitHub Actions Scheduler Download App From Url
 
 on:
   push:
