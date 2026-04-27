@@ -1,27 +1,27 @@
-name: testRigor GitHub Actions Scheduler
+# name: testRigor GitHub Actions Scheduler
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"   # Runs every day at 00:00 BRT (03:00 UTC)
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
+#   schedule:
+#     - cron: "0 3 * * *"   # Runs every day at 00:00 BRT (03:00 UTC)
 
-jobs:
-  api_call_job:
-    runs-on: ubuntu-latest
+# jobs:
+#   api_call_job:
+#     runs-on: ubuntu-latest
 
-    env:
-      FILE_URL: "https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-04-22_12-30-48_tr-playground-mobile-0.4.app.zip"
+#     env:
+#       FILE_URL: "https://files-to-test.s3.amazonaws.com/%2FtzPPYztrv7Eno9KJf%2F2026-04-22_12-30-48_tr-playground-mobile-0.4.app.zip"
 
-    steps:
-      - name: Run TestRigor API call
-        run: |
-          curl -X POST \
-            -H 'Content-type: application/json' \
-            -H 'auth-token: 68e1b8e8-8c6d-48d4-94c5-0cdf487adb4c' \
-            --data "{\"fileUrl\":\"$FILE_URL\",\"forceCancelPreviousTesting\":true,\"storedValues\":{\"storedValueName1\":\"Value\"}}" \
-            https://api.testrigor.com/api/v1/apps/uTFtZvK2yspL93TXL/retest
+#     steps:
+#       - name: Run TestRigor API call
+#         run: |
+#           curl -X POST \
+#             -H 'Content-type: application/json' \
+#             -H 'auth-token: 68e1b8e8-8c6d-48d4-94c5-0cdf487adb4c' \
+#             --data "{\"fileUrl\":\"$FILE_URL\",\"forceCancelPreviousTesting\":true,\"storedValues\":{\"storedValueName1\":\"Value\"}}" \
+#             https://api.testrigor.com/api/v1/apps/uTFtZvK2yspL93TXL/retest
 
-          sleep 10
+#           sleep 10
